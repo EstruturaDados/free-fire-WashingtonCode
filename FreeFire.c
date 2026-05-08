@@ -240,3 +240,19 @@ void buscarLista(No* primeiroItem) {
     printf("[ERRO DE RASTREIO] Após %d varreduras no sistema, o item não foi localizado no inventário.\n", contadorDeTestes);
 }
 
+// Função para Remover Item da Lista Encadeada
+void removerLista(No** primeiroItem) {
+    char itemAlvo[30];
+    printf("Qual o nome do item que deseja descartar da lista? "); fgets(itemAlvo, 30, stdin); itemAlvo[strcspn(itemAlvo, "\n")] = 0;
+    No *atual = *primeiroItem, *anterior = NULL;
+    while (atual != NULL && strcasecmp(atual->dados.nome, itemAlvo) != 0) {
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    if (atual == NULL) return;
+    if (anterior == NULL) *primeiroItem = atual->proximo;
+    else anterior->proximo = atual->proximo;
+    free(atual);
+    printf("Item descartado da lista!\n");
+}
+
