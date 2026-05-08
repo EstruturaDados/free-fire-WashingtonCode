@@ -110,3 +110,17 @@ int main() {
     printf("Saindo do jogo...\n");
     return 0;
 }
+
+// --- IMPLEMENTAÇÃO VETOR ---
+
+// Função para Inserir Item no Vetor
+void inserirVetor(Item vetor[], int *totalItens) {
+    if (*totalItens < MAX_ITENS) {
+        printf("Nome do item: "); fgets(vetor[*totalItens].nome, 30, stdin); vetor[*totalItens].nome[strcspn(vetor[*totalItens].nome, "\n")] = 0;
+        printf("Tipo do item: "); fgets(vetor[*totalItens].tipo, 20, stdin); vetor[*totalItens].tipo[strcspn(vetor[*totalItens].tipo, "\n")] = 0;
+        printf("Qtd do item: "); scanf("%d", &vetor[*totalItens].quantidade);
+        getchar();
+        (*totalItens)++;
+        printf("Item registrado com sucesso no banco de dados estático.\n");
+    } else printf("Mochila (Vetor) cheia!\n");
+}
