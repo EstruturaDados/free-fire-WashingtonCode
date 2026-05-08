@@ -61,3 +61,25 @@ int main() {
     return 0;
 }
 
+// Funcao para inserir novos itens na mochila
+void inserirItem(Item mochila[], int *total) {
+    if (*total < MAX_ITENS) {
+        printf("\nNome do item: ");
+        fgets(mochila[*total].nome, 30, stdin);
+        mochila[*total].nome[strcspn(mochila[*total].nome, "\n")] = 0; // Remove o \n
+
+        printf("Tipo (arma/municao/cura/protecao): ");
+        fgets(mochila[*total].tipo, 20, stdin);
+        mochila[*total].tipo[strcspn(mochila[*total].tipo, "\n")] = 0;
+
+        printf("Quantidade: ");
+        scanf("%d", &mochila[*total].quantidade);
+        getchar();
+
+        (*total)++;
+        printf("Item coletado com sucesso!\n");
+        listarItens(mochila, *total);
+    } else {
+        printf("\n[AVISO] Mochila cheia! Jogue algo fora para liberar espaço.\n");
+    }
+}
