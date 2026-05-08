@@ -83,3 +83,16 @@ void inserirItem(Item mochila[], int *total) {
         printf("\n[AVISO] Mochila cheia! Jogue algo fora para liberar espaço.\n");
     }
 }
+
+// Funcao para listar todos os itens atuais
+void listarItens(Item mochila[], int total) {
+    printf("\n--- SUA MOCHILA ATUAL (%d/%d) ---\n", total, MAX_ITENS);
+    if (total == 0) {
+        printf("Mochila vazia.\n");
+    } else {
+        for (int i = 0; i < total; i++) {
+            printf("[%d] %-20s | Tipo: %-15s | Qtd: %4d\n", i+1, mochila[i].nome, mochila[i].tipo, mochila[i].quantidade);
+        }
+    }
+}
+
