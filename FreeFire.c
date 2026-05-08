@@ -43,3 +43,70 @@ void buscarLista(No* primeiroItem);
 void removerLista(No** primeiroItem);
 void limparMochilaLista(No* primeiroItem);
 
+// --- FUNÇÃO MAIN ---
+int main() {
+    Item mochilaVetor[MAX_ITENS];
+    int totalVetor = 0;
+    No* mochilaLista = NULL;
+    int opcao, subOpcao;
+    
+    // Loop Principal do Menu
+    do {
+        printf("\n=== DESAFIO CÓDIGO DA ILHA (FREE FIRE) ===\n");
+        printf(">>> INVENTÁRIO DA MOCHILA\n");
+        printf(">>> TERMINAL TÁTICO: SELECIONE O MODO DE ARMAZENAMENTO\n");
+        printf("1. Modo Vetor (lista sequencial/estático)\n");
+        printf("2. Modo Lista Encadeada (Dinâmico)\n");
+        printf("0. Sair\n");
+        printf("Selecione o comando de ação: ");
+        scanf("%d", &opcao);
+
+        if (opcao == 1) {
+            do {
+                printf("\n--- MODO VETOR ---\n");
+                printf(">>> TERMINAL TÁTICO: OPERAÇÕES DE INVENTÁRIO\n");
+                printf("1. Inserir item (loot)\n");
+                printf("2. Listar item\n");
+                printf("3. Buscar item (busca sequencial).\n");
+                printf("4. Ordenar/Buscar item (busca binária).\n");
+                printf("5. Descartar item\n");
+                printf("0. Voltar\n");
+                printf("Selecione o comando de ação: ");
+                scanf("%d", &subOpcao);
+                getchar();
+                if (subOpcao == 1) inserirVetor(mochilaVetor, &totalVetor);
+                else if (subOpcao == 2) listarVetor(mochilaVetor, totalVetor);
+                else if (subOpcao == 3) buscarSequencialVetor(mochilaVetor, totalVetor);
+                else if (subOpcao == 4) {
+                    ordenarVetor(mochilaVetor, totalVetor);
+                    buscarBinariaVetor(mochilaVetor, totalVetor);
+                }
+                else if (subOpcao == 5) removerVetor(mochilaVetor, &totalVetor);
+            } while (subOpcao != 0);
+        } else if (opcao == 2) {
+            do {
+                printf("\n--- MODO LISTA ENCADEADA ---\n");
+                printf(">>> TERMINAL TÁTICO: OPERAÇÕES DE INVENTÁRIO\n");
+                printf("1. Inserir item (loot)\n");
+                printf("2. Listar item\n");
+                printf("3. Buscar item\n");
+                printf("4. Descartar item\n");
+                printf("0. Voltar\n");
+                printf("Selecione o comando de ação: ");
+                scanf("%d", &subOpcao);
+                getchar();
+                if (subOpcao == 1) inserirLista(&mochilaLista);
+                else if (subOpcao == 2) listarLista(mochilaLista);
+                else if (subOpcao == 3) buscarLista(mochilaLista);
+                else if (subOpcao == 4) removerLista(&mochilaLista);
+            } while (subOpcao != 0);
+        }
+    } while (opcao != 0);
+    
+    if (mochilaLista != NULL) {
+        limparMochilaLista(mochilaLista);
+    }
+
+    printf("Saindo do jogo...\n");
+    return 0;
+}
