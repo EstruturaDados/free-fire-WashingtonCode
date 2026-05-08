@@ -256,3 +256,13 @@ void removerLista(No** primeiroItem) {
     printf("Item descartado da lista!\n");
 }
 
+// Função para liberar toda a memória alocada dinamicamente para a lista
+void limparMochilaLista(No* primeiroItem) {
+    No* atual = primeiroItem;
+    while (atual != NULL) {
+        No* proximo = atual->proximo; // Salva a referência do próximo antes de apagar o atual
+        free(atual);                 // Libera o nó atual
+        atual = proximo;             // Vai para o próximo
+    }
+    printf("\nMemória da mochila dinâmica liberada com sucesso.\n");
+}
