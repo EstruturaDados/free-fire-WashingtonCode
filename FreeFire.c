@@ -7,3 +7,19 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
+// Definição de Constantes
+#define MAX_ITENS 10
+
+// Definição das Structs
+typedef struct {
+    char nome[30];
+    char tipo[20];
+    int quantidade;
+} Item;
+
+typedef struct No {
+    Item dados;
+    struct No* proximo;
+} No;
+
