@@ -212,3 +212,14 @@ void inserirLista(No** primeiroItem) {
     *primeiroItem = novo;
     printf("Item registrado com sucesso no banco de dados da lista encadeada!\n");
 }
+
+// Função para Listar Itens da Lista Encadeada
+void listarLista(No* primeiroItem) {
+    No* atual = primeiroItem;
+    printf("\n--- LISTA DINAMICA ---\n");
+    while (atual != NULL) {
+        printf("%-20s | %-15s | %d\n", atual->dados.nome, atual->dados.tipo, atual->dados.quantidade);
+        atual = atual->proximo;
+    }
+}
+
