@@ -132,3 +132,20 @@ void listarVetor(Item vetor[], int totalItens) {
     for (int i = 0; i < totalItens; i++) 
         printf("%-20s | %-15s | %d\n", vetor[i].nome, vetor[i].tipo, vetor[i].quantidade);
 }
+
+// Função para Buscar Item no Vetor (Busca Sequencial)
+void buscarSequencialVetor(Item vetor[], int totalItens) {
+    char itemAlvo[30];
+    comparacoesBusca = 0;
+    printf("Qual o nome do item que deseja buscar? "); fgets(itemAlvo, 30, stdin); itemAlvo[strcspn(itemAlvo, "\n")] = 0;
+    
+    for (int i = 0; i < totalItens; i++) {
+        comparacoesBusca++;
+        if (strcasecmp(vetor[i].nome, itemAlvo) == 0) {
+            printf("[DADO LOCALIZADO] Item detectado após %d varreduras no sistema\n", comparacoesBusca);
+            return;
+        }
+    }
+    printf("[ERRO DE RASTREIO] Após %d varreduras no sistema, o item não foi localizado no inventário.\n", comparacoesBusca);
+}
+
