@@ -124,3 +124,11 @@ void inserirVetor(Item vetor[], int *totalItens) {
         printf("Item registrado com sucesso no banco de dados estático.\n");
     } else printf("Mochila (Vetor) cheia!\n");
 }
+
+// Função para Listar Itens do Vetor
+void listarVetor(Item vetor[], int totalItens) {
+    printf("\n%-20s | %-15s | %s\n", "NOME", "TIPO", "QTD");
+    printf("------------------------------------------------------------\n");
+    for (int i = 0; i < totalItens; i++) 
+        printf("%-20s | %-15s | %d\n", vetor[i].nome, vetor[i].tipo, vetor[i].quantidade);
+}
