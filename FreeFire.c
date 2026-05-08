@@ -185,3 +185,17 @@ void buscarBinariaVetor(Item vetor[], int totalItens) {
     printf("[ERRO DE RASTREIO] Após %d varreduras no sistema, o item não foi localizado no inventário.\n", comparacoesBusca);
 }
 
+// Função para Remover Item do Vetor
+void removerVetor(Item vetor[], int *totalItens) {
+    char itemAlvo[30];
+    printf("Informe o nome do item para descarte: "); fgets(itemAlvo, 30, stdin); itemAlvo[strcspn(itemAlvo, "\n")] = 0;
+    for (int i = 0; i < *totalItens; i++) {
+        if (strcasecmp(vetor[i].nome, itemAlvo) == 0) {
+            for (int j = i; j < (*totalItens) - 1; j++) vetor[j] = vetor[j+1];
+            (*totalItens)--;
+            printf("Item descartado com sucesso!\n");
+            return;
+        }
+    }
+}
+
