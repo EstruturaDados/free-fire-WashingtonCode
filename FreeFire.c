@@ -23,3 +23,5 @@ typedef struct No {
     struct No* proximo;
 } No;
 
+// Variáveis Globais para Contagem de Comparações
+int comparacoesBusca = 0;
