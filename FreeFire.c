@@ -96,3 +96,22 @@ void listarItens(Item mochila[], int total) {
     }
 }
 
+// Funcao de busca sequencial pelo nome
+void buscarItem(Item mochila[], int total) {
+    char itemProcurado[30];
+    int encontrado = 0;
+
+    printf("\nDigite o nome do item para buscar: ");
+    fgets(itemProcurado, 30, stdin);
+    itemProcurado[strcspn(itemProcurado, "\n")] = 0;
+
+    for (int i = 0; i < total; i++) {
+        if (strcasecmp(mochila[i].nome, itemProcurado) == 0) { // Comparacao case-insensitive
+            printf("\nItem encontrado: %-20s | Tipo: %-15s | Qtd: %4d\n", mochila[i].nome, mochila[i].tipo, mochila[i].quantidade);
+            encontrado = 1;
+            break;
+        }
+    }
+    if (!encontrado) printf("\nO item '%s' não foi encontrado na mochila.\n", itemProcurado);
+}
+
