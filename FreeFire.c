@@ -21,3 +21,10 @@ typedef struct {
     char tipo[20];
     int quantidade;
 } Item;
+
+// Protótipos das funções para modularização
+void inserirItem(Item mochila[], int *total);
+void removerItem(Item mochila[], int *total);
+void listarItens(Item mochila[], int total);
+void buscarItem(Item mochila[], int total);
+
