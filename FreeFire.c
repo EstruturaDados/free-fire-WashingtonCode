@@ -11,3 +11,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
+// Constante para definir a capacidade máxima da mochila
+#define MAX_ITENS 10
+
