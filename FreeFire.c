@@ -199,3 +199,16 @@ void removerVetor(Item vetor[], int *totalItens) {
     }
 }
 
+// --- IMPLEMENTAÇÃO LISTA ENCADEADA ---
+
+// Função para Inserir Item na Lista Encadeada
+void inserirLista(No** primeiroItem) {
+    No* novo = (No*)malloc(sizeof(No));
+    printf("Nome do item: "); fgets(novo->dados.nome, 30, stdin); novo->dados.nome[strcspn(novo->dados.nome, "\n")] = 0;
+    printf("Tipo do item: "); fgets(novo->dados.tipo, 20, stdin); novo->dados.tipo[strcspn(novo->dados.tipo, "\n")] = 0;
+    printf("Qtd do item: "); scanf("%d", &novo->dados.quantidade); 
+    getchar();
+    novo->proximo = *primeiroItem;
+    *primeiroItem = novo;
+    printf("Item registrado com sucesso no banco de dados da lista encadeada!\n");
+}
