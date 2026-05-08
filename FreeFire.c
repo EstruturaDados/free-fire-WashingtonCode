@@ -149,3 +149,19 @@ void buscarSequencialVetor(Item vetor[], int totalItens) {
     printf("[ERRO DE RASTREIO] Após %d varreduras no sistema, o item não foi localizado no inventário.\n", comparacoesBusca);
 }
 
+// Função para Ordenar o Vetor (Bubble Sort) e Preparar para Busca Binária
+void ordenarVetor(Item vetor[], int totalItens) {
+    // Bubble Sort: Ordenando por Nome
+    for (int i = 0; i < totalItens - 1; i++) {
+        for (int j = 0; j < totalItens - i - 1; j++) {
+            if (strcasecmp(vetor[j].nome, vetor[j+1].nome) > 0) {
+                Item temp = vetor[j];
+                vetor[j] = vetor[j+1];
+                vetor[j+1] = temp;
+            }
+        }
+    }
+    printf("Vetor ordenado para busca binária.\n");
+}
+
+
