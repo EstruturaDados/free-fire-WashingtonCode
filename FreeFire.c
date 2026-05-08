@@ -223,3 +223,20 @@ void listarLista(No* primeiroItem) {
     }
 }
 
+// Função para Buscar Item na Lista Encadeada
+void buscarLista(No* primeiroItem) {
+    char itemAlvo[30];
+    int contadorDeTestes = 0;
+    printf("Qual o nome do item que deseja buscar? "); fgets(itemAlvo, 30, stdin); itemAlvo[strcspn(itemAlvo, "\n")] = 0;
+    No* atual = primeiroItem;
+    while (atual != NULL) {
+        contadorDeTestes++;
+        if (strcasecmp(atual->dados.nome, itemAlvo) == 0) {
+            printf("[DADO LOCALIZADO] Item detectado após %d varreduras na lista do sistema.\n", contadorDeTestes);
+            return;
+        }
+        atual = atual->proximo;
+    }
+    printf("[ERRO DE RASTREIO] Após %d varreduras no sistema, o item não foi localizado no inventário.\n", contadorDeTestes);
+}
+
