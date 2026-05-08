@@ -115,3 +115,31 @@ void buscarItem(Item mochila[], int total) {
     if (!encontrado) printf("\nO item '%s' não foi encontrado na mochila.\n", itemProcurado);
 }
 
+// Funcao para remover item e reorganizar a lista
+void removerItem(Item mochila[], int *total) {
+    char itemProcurado[30];
+    int encontrado = -1;
+
+    printf("\nDigite o nome do item para remover: ");
+    fgets(itemProcurado, 30, stdin);
+    itemProcurado[strcspn(itemProcurado, "\n")] = 0;
+
+    for (int i = 0; i < *total; i++) {
+        if (strcasecmp(mochila[i].nome, itemProcurado) == 0) {
+            encontrado = i;
+            break;
+        }
+    }
+
+    if (encontrado != -1) {
+        // Move os itens subsequentes uma posicao para tras para manter a sequencia
+        for (int i = encontrado; i < (*total) - 1; i++) {
+            mochila[i] = mochila[i + 1];
+        }
+        (*total)--;
+        printf("Item removido com sucesso!\n");
+        listarItens(mochila, *total);
+    } else {
+        printf("Item nao encontrado para remoção.\n");
+    }
+}
