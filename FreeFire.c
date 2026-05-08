@@ -266,3 +266,4 @@ void limparMochilaLista(No* primeiroItem) {
     }
     printf("\nMemória da mochila dinâmica liberada com sucesso.\n");
 }
+
