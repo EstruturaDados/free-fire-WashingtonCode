@@ -165,3 +165,23 @@ void ordenarVetor(Item vetor[], int totalItens) {
 }
 
 
+// Função para Buscar Item no Vetor (Busca Binária)
+void buscarBinariaVetor(Item vetor[], int totalItens) {
+    char itemAlvo[30];
+    int inicio = 0, fim = totalItens - 1, meio;
+    comparacoesBusca = 0;
+    printf("Qual o nome do item que deseja buscar de forma binária?: "); fgets(itemAlvo, 30, stdin); itemAlvo[strcspn(itemAlvo, "\n")] = 0;
+
+    while (inicio <= fim) {
+        comparacoesBusca++;
+        meio = (inicio + fim) / 2;
+        int resultadoComparacao = strcasecmp(vetor[meio].nome, itemAlvo);
+        if (resultadoComparacao == 0) {
+            printf("[DADO LOCALIZADO] Item detectado após %d varreduras no sistema de forma binária.\n", comparacoesBusca);
+            return;
+        } else if (resultadoComparacao < 0) inicio = meio + 1;
+        else fim = meio - 1;
+    }
+    printf("[ERRO DE RASTREIO] Após %d varreduras no sistema, o item não foi localizado no inventário.\n", comparacoesBusca);
+}
+
