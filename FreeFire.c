@@ -18,3 +18,8 @@ typedef struct {
     char tipo[20];
     int prioridade;
 } Componente;
+
+// Variável global para contar comparações
+int numComparacoes = 0; 
+
+
