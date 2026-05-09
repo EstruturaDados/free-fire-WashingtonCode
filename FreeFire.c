@@ -231,3 +231,18 @@ void insertionSortTipo(Componente vetor[], int totalComponentes) {
     }
 }
 
+// Selection Sort para ordenar por prioridade
+void selectionSortPrioridade(Componente vetor[], int totalComponentes) {
+    for (int i = 0; i < totalComponentes - 1; i++) {
+        int min = i;
+        for (int j = i + 1; j < totalComponentes; j++) {
+            numComparacoes++;
+            if (vetor[j].prioridade < vetor[min].prioridade) {
+                min = j;
+            }
+        }
+        Componente temp = vetor[min];
+        vetor[min] = vetor[i];
+        vetor[i] = temp;
+    }
+}
