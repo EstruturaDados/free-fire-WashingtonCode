@@ -12,3 +12,9 @@
 // Definição de constantes
 #define MAX_COMPONENTES 20
 
+// Definição da STRUCT para os componentes da torre de resgate
+typedef struct {
+    char nome[30];
+    char tipo[20];
+    int prioridade;
+} Componente;
