@@ -246,3 +246,20 @@ void selectionSortPrioridade(Componente vetor[], int totalComponentes) {
         vetor[i] = temp;
     }
 }
+
+// Busca binária para localizar um componente por nome (Obs: A lista precisa estar ordenada por nome)
+void buscaBinariaPorNome(Componente vetor[], int totalComponentes, char* nome) {
+    int inicio = 0, fim = totalComponentes - 1, meio;
+    int comps = 0;
+    while (inicio <= fim) {
+        comps++;
+        meio = (inicio + fim) / 2;
+        int res = strcasecmp(vetor[meio].nome, nome);
+        if (res == 0) {
+            printf("\n[DADO LOCALIZADO] Item detectado após %d varreduras.\n", comps);
+            return;
+        } else if (res < 0) inicio = meio + 1;
+        else fim = meio - 1;
+    }
+    printf("\n[ERRO] Componente não localizado após %d varreduras.\n", comps);
+}
