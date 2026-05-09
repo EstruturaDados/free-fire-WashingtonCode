@@ -8,3 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
+// Definição de constantes
+#define MAX_COMPONENTES 20
+
