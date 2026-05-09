@@ -263,3 +263,5 @@ void buscaBinariaPorNome(Componente vetor[], int totalComponentes, char* nome) {
     }
     printf("\n[ERRO] Componente não localizado após %d varreduras.\n", comps);
 }
+
+
