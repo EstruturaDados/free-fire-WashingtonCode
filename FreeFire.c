@@ -214,3 +214,20 @@ void bubbleSortNome(Componente vetor[], int totalComponentes) {
         }
     }
 }
+
+// Insertion Sort para ordenar por tipo
+void insertionSortTipo(Componente vetor[], int totalComponentes) {
+    for (int i = 1; i < totalComponentes; i++) {
+        Componente chave = vetor[i];
+        int j = i - 1;
+        while (j >= 0) {
+            numComparacoes++;
+            if (strcasecmp(vetor[j].tipo, chave.tipo) > 0) {
+                vetor[j + 1] = vetor[j];
+                j--;
+            } else break;
+        }
+        vetor[j + 1] = chave;
+    }
+}
+
