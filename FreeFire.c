@@ -146,4 +146,26 @@ void medirTempo(void (*algoritmo)(Componente[], int), Componente vetor[], int to
     mostrarComponentes(vetor, totalComponentes);
 }
 
+// Função para adicionar componentes à mochila
+void adicionarComponentes(Componente vetor[], int* totalComponentes) {
+    if (*totalComponentes < MAX_COMPONENTES) {
+        printf("Nome do componente: ");
+        fgets(vetor[*totalComponentes].nome, 30, stdin);
+        vetor[*totalComponentes].nome[strcspn(vetor[*totalComponentes].nome, "\n")] = 0;
+
+        printf("Tipo (ex: cura, arma, eletronico, municao e etc.): ");
+        fgets(vetor[*totalComponentes].tipo, 20, stdin);
+        vetor[*totalComponentes].tipo[strcspn(vetor[*totalComponentes].tipo, "\n")] = 0;
+
+        printf("Prioridade (1-10): ");
+        scanf("%d", &vetor[*totalComponentes].prioridade);
+        getchar();
+
+        (*totalComponentes)++;
+        printf("Item adicionado ao inventário da mochila!\n");
+    } else {
+        printf("Mochila cheia!\n");
+    }
+}
+
 
