@@ -168,4 +168,28 @@ void adicionarComponentes(Componente vetor[], int* totalComponentes) {
     }
 }
 
+// Função para descartar componentes da mochila
+void descartarComponentes(Componente vetor[], int* totalComponentes) {
+    if (*totalComponentes == 0) {
+        printf("Mochila vazia!\n");
+        return;
+    }
+    char alvo[30];
+    printf("Nome do item para descarte: ");
+    fgets(alvo, 30, stdin);
+    alvo[strcspn(alvo, "\n")] = 0;
+
+    for (int i = 0; i < *totalComponentes; i++) {
+        if (strcasecmp(vetor[i].nome, alvo) == 0) {
+            for (int j = i; j < (*totalComponentes) - 1; j++) {
+                vetor[j] = vetor[j + 1];
+            }
+            (*totalComponentes)--;
+            printf("Item descartado da mochila.\n");
+            return;
+        }
+    }
+    printf("Item não encontrado na mochila.\n");
+}
+
 
