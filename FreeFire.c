@@ -22,4 +22,14 @@ typedef struct {
 // Variável global para contar comparações
 int numComparacoes = 0; 
 
+// Prótotipos das funções
+void adicionarComponentes(Componente vetor[], int* totalComponentes);
+void descartarComponentes(Componente vetor[], int* totalComponentes);
+void mostrarComponentes(Componente vetor[], int totalComponentes);
+void selectionSortPrioridade(Componente vetor[], int totalComponentes);
+void insertionSortTipo(Componente vetor[], int totalComponentes);
+void bubbleSortNome(Componente vetor[], int totalComponentes);
+void buscaBinariaPorNome(Componente vetor[], int totalComponentes, char* nome);
+void medirTempo(void (*algoritmo)(Componente[], int), Componente vetor[], int totalComponentes);
+
 
