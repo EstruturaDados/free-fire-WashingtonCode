@@ -192,4 +192,11 @@ void descartarComponentes(Componente vetor[], int* totalComponentes) {
     printf("Item não encontrado na mochila.\n");
 }
 
-
+// Função para mostrar os componentes da mochila
+void mostrarComponentes(Componente vetor[], int totalComponentes) {
+    printf("\n%-20s | %-15s | %s\n", "NOME", "TIPO", "PRIORIDADE");
+    printf("----------------------------------------------------\n");
+    for (int i = 0; i < totalComponentes; i++) {
+        printf("%-20s | %-15s | %d\n", vetor[i].nome, vetor[i].tipo, vetor[i].prioridade);
+    }
+}
