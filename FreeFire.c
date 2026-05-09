@@ -128,4 +128,22 @@ int main() {
     return 0;
 }
 
+// Função para medir o tempo de execução e contar comparações
+void medirTempo(void (*algoritmo)(Componente[], int), Componente vetor[], int totalComponentes) {
+    numComparacoes = 0;
+    clock_t inicio = clock();
+    
+    algoritmo(vetor, totalComponentes);
+    
+    clock_t fim = clock();
+    
+    // Cálculo: (Diferença de ticks / Ticks por segundo) * 1000 para milissegundos
+    double tempoMilissegundos = ((double)(fim - inicio) / CLOCKS_PER_SEC) * 1000;
+
+    printf("\n>>> RELATÓRIO DE DESEMPENHO TÁTICO <<<\n");
+    printf("Comparações realizadas: %d\n", numComparacoes);
+    printf("Tempo de CPU: %.10f ms (milissegundos)\n", tempoMilissegundos);
+    mostrarComponentes(vetor, totalComponentes);
+}
+
 
