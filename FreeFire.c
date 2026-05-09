@@ -200,3 +200,17 @@ void mostrarComponentes(Componente vetor[], int totalComponentes) {
         printf("%-20s | %-15s | %d\n", vetor[i].nome, vetor[i].tipo, vetor[i].prioridade);
     }
 }
+
+// Bubble Sort para ordenar por nome
+void bubbleSortNome(Componente vetor[], int totalComponentes) {
+    for (int i = 0; i < totalComponentes - 1; i++) {
+        for (int j = 0; j < totalComponentes - i - 1; j++) {
+            numComparacoes++;
+            if (strcasecmp(vetor[j].nome, vetor[j + 1].nome) > 0) {
+                Componente temp = vetor[j];
+                vetor[j] = vetor[j + 1];
+                vetor[j + 1] = temp;
+            }
+        }
+    }
+}
